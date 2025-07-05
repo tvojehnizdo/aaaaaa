@@ -1,145 +1,45 @@
-
---+<!DOCTYPE html>
---+<html lang="cs">
---+<head>
---+  <meta charset="UTF-8">
---+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
---+  <title>Konfigurátor domu</title>
---+  <script defer src="main.js"></script>
---+  <style>
---+    body { font-family: Arial, sans-serif; padding: 20px; }
---+    .form-group { margin-bottom: 1rem; }
---+  </style>
---+</head>
---+<body>
---+  <h1>Konfigurátor domu</h1>
---+  <form id="config-form">
---+    <div class="form-group">
---+      <label for="disposition">Dispozice:</label>
---+      <select id="disposition" name="disposition">
---+        <option value="1kk">1+kk</option>
---+        <option value="2kk">2+kk</option>
---+        <option value="3kk">3+kk</option>
---+        <option value="4kk">4+kk</option>
---+      </select>
---+    </div>
---+    <div class="form-group">
---+      <label for="area">Užitná plocha (m²):</label>
---+      <input type="number" id="area" name="area" min="10" required>
---+    </div>
---+    <div class="form-group">
---+      <label for="delivery">Typ dodání:</label>
---+      <select id="delivery" name="delivery">
---+        <option value="shell">Hrubá stavba</option>
---+        <option value="turnkey">Na klíč</option>
---+      </select>
---+    </div>
---+    <div id="price-display" class="form-group">
---+      <!-- Dynamická cena se zobrazí zde -->
---+    </div>
---+    <button type="submit">Odeslat poptávku</button>
---+  </form>
---+  <div id="visualization">
---+    <!-- Zde se zobrazí vizualizace domu -->
---+  </div>
---+</body>
---+</html>
--- 
---EOF
---)
--+<!DOCTYPE html>
--+<html lang="cs">
--+<head>
--+  <meta charset="UTF-8">
--+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
--+  <title>Konfigurátor domu</title>
--+  <script type="module" defer src="main.js"></script>
--+  <style>
--+    body { font-family: Arial, sans-serif; padding: 20px; }
--+    .form-group { margin-bottom: 1rem; }
--+  </style>
--+</head>
--+<body>
--+  <h1>Konfigurátor domu</h1>
--+  <form id="config-form">
--+    <div class="form-group">
--+      <label for="disposition">Dispozice:</label>
--+      <select id="disposition" name="disposition">
--+        <option value="1kk">1+kk</option>
--+        <option value="2kk">2+kk</option>
--+        <option value="3kk">3+kk</option>
--+        <option value="4kk">4+kk</option>
--+      </select>
--+    </div>
--+    <div class="form-group">
--+      <label for="area">Užitná plocha (m²):</label>
--+      <input type="number" id="area" name="area" min="10" required>
--+    </div>
--+    <div class="form-group">
--+      <label for="delivery">Typ dodání:</label>
--+      <select id="delivery" name="delivery">
--+        <option value="shell">Hrubá stavba</option>
--+        <option value="turnkey">Na klíč</option>
--+      </select>
--+    </div>
--+    <div id="price-display" class="form-group">
--+      <!-- Dynamická cena se zobrazí zde -->
--+    </div>
--+    <button type="submit">Odeslat poptávku</button>
--+  </form>
--+  <div id="visualization">
--+    <!-- Zde se zobrazí vizualizace domu -->
--+  </div>
--+</body>
--+</html>
-- 
--EOF
--)
-+<!DOCTYPE html>
-+<html lang="cs">
-+<head>
-+  <meta charset="UTF-8">
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-+  <title>Konfigurátor domu</title>
-+  <script type="module" defer src="main.js"></script>
-+  <style>
-+    body { font-family: Arial, sans-serif; padding: 20px; }
-+    .form-group { margin-bottom: 1rem; }
-+  </style>
-+</head>
-+<body>
-+  <h1>Konfigurátor domu</h1>
-+  <form id="config-form">
-+    <div class="form-group">
-+      <label for="disposition">Dispozice:</label>
-+      <select id="disposition" name="disposition">
-+        <option value="1kk">1+kk</option>
-+        <option value="2kk">2+kk</option>
-+        <option value="3kk">3+kk</option>
-+        <option value="4kk">4+kk</option>
-+      </select>
-+    </div>
-+    <div class="form-group">
-+      <label for="area">Užitná plocha (m²):</label>
-+      <input type="number" id="area" name="area" min="10" required>
-+    </div>
-+    <div class="form-group">
-+      <label for="delivery">Typ dodání:</label>
-+      <select id="delivery" name="delivery">
-+        <option value="shell">Hrubá stavba</option>
-+        <option value="turnkey">Na klíč</option>
-+      </select>
-+    </div>
-+    <div id="price-display" class="form-group">
-+      <!-- Dynamická cena se zobrazí zde -->
-+    </div>
-+    <button type="submit">Odeslat poptávku</button>
-+  </form>
-+  <div id="visualization">
-+    <!-- Zde se zobrazí vizualizace domu -->
-+  </div>
-+</body>
-+</html>
- 
-EOF
-)
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfigurátor domu</title>
+  <script type="module" defer src="main.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .form-group { margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Konfigurátor domu</h1>
+  <form id="config-form">
+    <div class="form-group">
+      <label for="disposition">Dispozice:</label>
+      <select id="disposition" name="disposition">
+        <option value="1kk">1+kk</option>
+        <option value="2kk">2+kk</option>
+        <option value="3kk">3+kk</option>
+        <option value="4kk">4+kk</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="area">Užitná plocha (m²):</label>
+      <input type="number" id="area" name="area" min="10" required>
+    </div>
+    <div class="form-group">
+      <label for="delivery">Typ dodání:</label>
+      <select id="delivery" name="delivery">
+        <option value="shell">Hrubá stavba</option>
+        <option value="turnkey">Na klíč</option>
+      </select>
+    </div>
+    <div id="price-display" class="form-group">
+      <!-- Dynamická cena se zobrazí zde -->
+    </div>
+    <button type="submit">Odeslat poptávku</button>
+  </form>
+  <div id="visualization">
+    <!-- Zde se zobrazí vizualizace domu -->
+  </div>
+</body>
+</html>
