@@ -1,15 +1,46 @@
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/LICENSE b/LICENSE
-index 4979edaae998626bad75b86386a51287739be994..e1fd273f075162bf676d21ab42132bc384578d14 100644
+index df19bfd684daf4b0f7fb495648107206c3e01aa2..e1fd273f075162bf676d21ab42132bc384578d14 100644
 --- a/LICENSE
 +++ b/LICENSE
-@@ -1,31 +1,21 @@
+@@ -1,61 +1,21 @@
 - (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
--diff --git a//dev/null b/LICENSE
--index 0000000000000000000000000000000000000000..230cf99e0d437382c569d3ab84164873fccc9418 100644
----- a//dev/null
+-diff --git a/LICENSE b/LICENSE
+-index 4979edaae998626bad75b86386a51287739be994..e1fd273f075162bf676d21ab42132bc384578d14 100644
+---- a/LICENSE
 -+++ b/LICENSE
--@@ -0,0 +1,22 @@
+-@@ -1,31 +1,21 @@
+-- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+--diff --git a//dev/null b/LICENSE
+--index 0000000000000000000000000000000000000000..230cf99e0d437382c569d3ab84164873fccc9418 100644
+----- a//dev/null
+--+++ b/LICENSE
+--@@ -0,0 +1,22 @@
+--+MIT License
+--+
+--+Copyright (c) 2023
+--+
+--+Permission is hereby granted, free of charge, to any person obtaining a copy
+--+of this software and associated documentation files (the "Software"), to deal
+--+in the Software without restriction, including without limitation the rights
+--+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+--+copies of the Software, and to permit persons to whom the Software is
+--+furnished to do so, subject to the following conditions:
+--+
+--+The above copyright notice and this permission notice shall be included in all
+--+copies or substantial portions of the Software.
+--+
+--+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+--+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+--+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+--+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+--+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+--+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+--+SOFTWARE.
+--+ 
+-- 
+--EOF
+--)
 -+MIT License
 -+
 -+Copyright (c) 2023
@@ -31,7 +62,6 @@ index 4979edaae998626bad75b86386a51287739be994..e1fd273f075162bf676d21ab42132bc3
 -+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 -+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 -+SOFTWARE.
--+ 
 - 
 -EOF
 -)
