@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konfigurátor domu</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .card.selected {
+    border-color: #007bff;
+    background-color: #e7f0ff;
+  }
+  label {
+    display: block;
+    margin-top: .5rem;
+  }
+  #price {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  #summary-section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  #summary-section li {
+    margin-bottom: .3rem;
+  }
+  #export-buttons button {
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+  }
+</style>
+</head>
+<body>
+<h1>Konfigurátor domu</h1>
+
+<form id="config-form">
+  <section>
+    <h2>1. Vyberte dispozici</h2>
+    <div class="cards" id="disposition-cards">
+      <div class="card selected" data-value="1+kk">1+kk</div>
+      <div class="card" data-value="2+kk">2+kk</div>
+      <div class="card" data-value="3+kk">3+kk</div>
+      <div class="card" data-value="4+kk">4+kk</div>
+      <div class="card" data-value="5+kk">5+kk</div>
+      <div class="card" data-value="6+kk">6+kk</div>
+      <div class="card" data-value="7+kk">7+kk</div>
+      <div class="card" data-value="8+kk">8+kk</div>
+      <div class="card" data-value="9+kk">9+kk</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Užitná plocha</h2>
+    <input type="number" id="area" min="20" max="300" value="80" required>
+  </section>
+
+  <section>
+    <h2>3. Typ dodávky</h2>
+    <select id="delivery">
+      <option value="hruba" data-price="16500">Hrubá stavba – 16&nbsp;500 Kč/m²</option>
+      <option value="dokonceni" data-price="24500">K dokončení – 24&nbsp;500 Kč/m²</option>
+      <option value="klic" data-price="29500">Na klíč – 29&nbsp;500 Kč/m²</option>
+    </select>
+  </section>
+
+  <section>
+    <h2>4. Tvar, střecha a podlaží</h2>
+    <label>Tvar domu:
+      <select id="shape">
+        <option value="obdelnik">Obdélník</option>
+        <option value="l">L</option>
+        <option value="u">U</option>
+      </select>
+    </label>
+    <label>Typ střechy:
+      <select id="roof">
+        <option value="sedlova">Sedlová</option>
+        <option value="pultova">Pultová</option>
+        <option value="plocha">Plochá</option>
+      </select>
+    </label>
+    <label>Počet podlaží:
+      <select id="floors">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+    </label>
+  </section>
+
+  <section>
+    <h2>5. Vnitřní výbava</h2>
+    <div class="equipment">
+      <label><input type="checkbox" value="floorHeating">Podlahové topení</label>
+      <label><input type="checkbox" value="ac">Klimatizace</label>
+      <label><input type="checkbox" value="smart">Chytrá domácnost</label>
+      <label><input type="checkbox" value="kitchen">Základní kuchyň</label>
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Cena</h2>
+    <div id="price">-- Kč</div>
+  </section>
+
+  <section>
+    <h2>7. Vizualizace</h2>
+    <img id="visualization" src="https://via.placeholder.com/600x400?text=Vizualizace" alt="Vizualizace domu" width="600" height="400">
+  </section>
+
+  <section id="summary-section">
+    <h2>8. Shrnutí volby</h2>
+    <ul>
+      <li>Dispozice: <span id="summary-disposition">1+kk</span></li>
+      <li>Velikost: <span id="summary-area">80</span> m²</li>
+      <li>Varianta: <span id="summary-delivery">Hrubá stavba</span></li>
+      <li>Cena: <span id="summary-price">-- Kč</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>9. Exporty (připravujeme)</h2>
+    <div id="export-buttons">
+      <button type="button" disabled>Export do PDF</button>
+      <button type="button" disabled>Odeslat e‑mailem</button>
+      <button type="button" disabled>Export do Google Sheets</button>
+    </div>
+  </section>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dispositionCards = document.querySelectorAll('#disposition-cards .card');
+  const areaInput = document.getElementById('area');
+  const deliverySelect = document.getElementById('delivery');
+  const shapeSelect = document.getElementById('shape');
+  const roofSelect = document.getElementById('roof');
+  const floorsSelect = document.getElementById('floors');
+  const equipmentInputs = document.querySelectorAll('.equipment input[type=checkbox]');
+  const visualization = document.getElementById('visualization');
+
+  let selectedDisposition = '1+kk';
+
+  dispositionCards.forEach(card => {
+    card.addEventListener('click', () => {
+      dispositionCards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedDisposition = card.dataset.value;
+      update();
+    });
+  });
+
+  function calculatePrice() {
+    const area = parseFloat(areaInput.value) || 0;
+    const pricePer = parseFloat(deliverySelect.selectedOptions[0].dataset.price) || 0;
+    return area * pricePer;
+  }
+
+  function updateVisualization() {
+    const shape = shapeSelect.value;
+    const roof = roofSelect.value;
+    const floors = floorsSelect.value;
+    const text = encodeURIComponent(`${shape}-${roof}-${floors}`);
+    visualization.src = `https://via.placeholder.com/600x400?text=${text}`;
+  }
+
+  function updateSummary() {
+    document.getElementById('summary-disposition').textContent = selectedDisposition;
+    document.getElementById('summary-area').textContent = areaInput.value;
+    const deliveryText = deliverySelect.options[deliverySelect.selectedIndex].textContent;
+    document.getElementById('summary-delivery').textContent = deliveryText.split('–')[0].trim();
+    document.getElementById('summary-price').textContent =
+      calculatePrice().toLocaleString('cs-CZ') + ' Kč';
+  }
+
+  function update() {
+    document.getElementById('price').textContent =
+      calculatePrice().toLocaleString('cs-CZ') + ' Kč';
+    updateVisualization();
+    updateSummary();
+  }
+
+  [areaInput, deliverySelect, shapeSelect, roofSelect, floorsSelect].forEach(el => {
+    el.addEventListener('input', update);
+  });
+  equipmentInputs.forEach(el => el.addEventListener('change', update));
+
+  update(); // počáteční zobrazení
+});
+</script>
+</body>
+</html>
