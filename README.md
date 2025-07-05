@@ -76,4 +76,3 @@ index 3d9af1e46415aca629ae36e351034480bd008917..3a43198f9e6f987e63c3308c69dbf753
  
 EOF
 )
-Tento README může být dále rozšiřován podle potřeby – například o instrukce pro vývojáře nebo detailnější popis jednotlivých částí aplikace.
