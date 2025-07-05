@@ -1,9 +1,49 @@
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a//dev/null b/style.css
-index 0000000000000000000000000000000000000000..756653dd57513a4fc9d643143c7cd5f3046fa5d1 100644
---- a//dev/null
+diff --git a/style.css b/style.css
+index c1c19fbd7bc3029d39aac94c0013d7cd7a2d693d..756653dd57513a4fc9d643143c7cd5f3046fa5d1 100644
+--- a/style.css
 +++ b/style.css
-@@ -0,0 +1,31 @@
+@@ -1,40 +1,31 @@
+- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+-diff --git a//dev/null b/style.css
+-index 0000000000000000000000000000000000000000..756653dd57513a4fc9d643143c7cd5f3046fa5d1 100644
+---- a//dev/null
+-+++ b/style.css
+-@@ -0,0 +1,31 @@
+-+body {
+-+  font-family: Arial, sans-serif;
+-+  margin: 0;
+-+  padding: 20px;
+-+}
+-+.wrapper {
+-+  display: flex;
+-+  flex-wrap: wrap;
+-+  gap: 2rem;
+-+}
+-+form {
+-+  flex: 1 1 320px;
+-+  max-width: 400px;
+-+}
+-+#visualization {
+-+  flex: 1 1 320px;
+-+  background: #f0f0f0;
+-+  min-height: 300px;
+-+  display: flex;
+-+  align-items: center;
+-+  justify-content: center;
+-+}
+-+.form-group {
+-+  margin-bottom: 1rem;
+-+}
+-+#summary {
+-+  margin-top: 2rem;
+-+}
+-+#export-buttons button {
+-+  margin-right: .5rem;
+-+}
+- 
+-EOF
+-)
 +body {
 +  font-family: Arial, sans-serif;
 +  margin: 0;
