@@ -1,28 +1,44 @@
-# Konfigurátor domu
-
-Tento projekt obsahuje jednoduchý webový konfigurátor rodinného domu napsaný čistě v HTML, CSS a JavaScriptu. Umožňuje volit dispozici domu, zadat užitnou plochu, vybrat typ dodávky, tvar domu, střechu a počet podlaží. Součástí je i výběr některých prvků vnitřní výbavy, orientační výpočet ceny a základní vizualizace.
-
-## Jak spustit
-
-1. Stáhněte celý obsah repozitáře (např. pomocí `git clone` nebo přímým stažením ZIP archivu).
-2. Otevřete soubor `index.html` v libovolném webovém prohlížeči.
-3. V prohlížeči uvidíte formulář pro konfiguraci domu. Po změně parametrů se automaticky přepočítává cena a aktualizuje přehled zvolené konfigurace.
-
-## Struktura projektu
-
-- **index.html** – hlavní stránka s veškerým kódem (HTML, CSS i JavaScript).
-- **(nepovinné) budoucí soubory** – v případě rozšíření projektu je možné oddělit JavaScript nebo styly do samostatných souborů.
-
-## Další možnosti
-
-Na konci stránky jsou připravena tlačítka pro export do PDF, odeslání e‑mailem a export do Google Sheets. V tuto chvíli ještě nejsou aktivní – slouží pouze jako zástupci pro budoucí funkce.
-
-## Nasazení na GitHub Pages
-
-1. Vytvořte nový repozitář na GitHubu a nahrajte do něj soubor `index.html`.
-2. V nastavení repozitáře aktivujte **GitHub Pages** a jako zdroj zvolte větev `main` (nebo jinou).
-3. Po několika okamžicích bude stránka dostupná na adrese `https://<uživatelské_jméno>.github.io/<název_repozitáře>`.
-
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/README.md b/README.md
+index 735846533f9a36929f265a0ea913aa19a6fa65bb..03c54e2ecc2c2faff970eaa30b93019b837d3a1f 100644
+--- a/README.md
++++ b/README.md
+@@ -3,25 +3,32 @@ diff --git a//dev/null b/README.md
+ index 0000000000000000000000000000000000000000..fecccf65d7495b3f5d5e6feceb37c76fe8aec305 100644
+ --- a//dev/null
+ +++ b/README.md
+ @@ -0,0 +1,18 @@
+ +# Konfigurátor domu – Tvoje Hnízdo
+ +
+ +**Konfigurátor domu – Tvoje Hnízdo** je prototyp webové aplikace umožňující navrhnout vlastní rodinný dům přímo v prohlížeči. Projekt slouží jako ukázka základních funkcí konfigurátoru a do budoucna by měl nabídnout kompletní proces od výběru dispozic až po získání cenové kalkulace.
+ +
+ +## Očekávané funkce
+ +
+ +- **Výběr dispozic** – možnost upravovat velikost a uspořádání místností dle individuálních potřeb.
+ +- **Vizualizace v reálném čase** – změny dispozic se ihned projeví v náhledu domu.
+ +- **Automatický výpočet ceny** – konfigurátor po každé úpravě přepočítá orientační cenu stavby.
+ +- **Export a sdílení** – výsledný návrh bude možné uložit do PDF nebo sdílet pomocí odkazu.
+ +
+ +## Jak spustit
+ +
+ +1. Naklonujte nebo stáhněte tento repozitář.
+ +2. Otevřete soubor `Konfigurátor.html` (případně `konfigurator_tvojehnizdo.html`) v libovolném webovém prohlížeči.
+ +3. Pro hostování na vlastním webu nahrajte obsah repozitáře na webový server a zpřístupněte HTML soubor jako domovskou stránku.
+ +
+ +> Projekt je ve fázi prototypu a neobsahuje kompletní funkcionalitu. Soubor `Konfigurátor.html` je generovaný náhled a slouží pouze k demonstraci.
+  
+ EOF
+ )
++
++## Running the server
++
++1. Run `npm install` to install dependencies.
++2. Start the server with `npm start`.
++3. POST requests can be sent to `http://localhost:3000/submit`.
++
+ 
+EOF
+)
 ---
 
 Tento README může být dále rozšiřován podle potřeby – například o instrukce pro vývojáře nebo detailnější popis jednotlivých částí aplikace.
