@@ -1,40 +1,25 @@
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/package.json b/package.json
-index f2cf8944e3dfa0c1c1b8ef45f960bfa691e2f1b0..c29ec1c2a346c59224db9ffa8055dd10c2498648 100644
---- a/package.json
+diff --git a//dev/null b/package.json
+index 0000000000000000000000000000000000000000..3d640111d8480aaa2f862722864329b571163300 100644
+--- a//dev/null
 +++ b/package.json
-@@ -1,21 +1,12 @@
-- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
--diff --git a//dev/null b/package.json
--index 0000000000000000000000000000000000000000..c29ec1c2a346c59224db9ffa8055dd10c2498648 100644
----- a//dev/null
--+++ b/package.json
--@@ -0,0 +1,12 @@
--+{
--+  "name": "konfigur-tor-server",
--+  "version": "1.0.0",
--+  "description": "Simple Express server for form submission",
--+  "main": "server.js",
--+  "scripts": {
--+    "start": "node server.js"
--+  },
--+  "dependencies": {
--+    "express": "^4.18.2"
--+  }
--+}
-- 
--EOF
--)
+@@ -0,0 +1,18 @@
 +{
-+  "name": "konfigur-tor-server",
++  "name": "konfigur-tor-domu-final-verze",
 +  "version": "1.0.0",
-+  "description": "Simple Express server for form submission",
-+  "main": "server.js",
++  "description": "Webový konfigurátor domu",
++  "type": "module",
++  "main": "main.js",
 +  "scripts": {
-+    "start": "node server.js"
++    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
 +  },
-+  "dependencies": {
-+    "express": "^4.18.2"
++  "author": "",
++  "license": "MIT",
++  "devDependencies": {
++    "jest": "^29.7.0"
++  },
++  "jest": {
++    "testEnvironment": "node"
 +  }
 +}
  
